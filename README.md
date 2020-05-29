@@ -17,3 +17,8 @@ How to deploy the new application?
 ### `"deploy": "gh-pages -d build"`
 4. Deploy application to GitHub Pages:
 ### `npm run deploy`
+
+Issues:
+1. You should be sure that using the last git (version >= 1.9)
+2. If you see next message: A branch named 'gh-pages' already exists, please remove cache:
+### `~node_modules/gh-pages/.cache`
