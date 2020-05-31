@@ -1,27 +1,50 @@
 import React from 'react';
 import ReactoDOM from 'react-dom';
 
-const elem = (
-    <div>
-        <h1>Todo List</h1>
+const TodoList = () => {
+    return (
+        <ul className="todo-list">
+            <li className="todo-item">Learn React</li>
+            <li className="todo-item">Create React App</li>
+            <li className="todo-item">Deploy App on GitHub Pages</li>
+        </ul>
+    );
+};
+
+const AppHeder = () => {
+    return <h1>Todo List</h1>;
+};
+
+const FilterPanel = () => {
+    return (
         <div className='filter-group'>
             <input placeholder="Search" />
             <button>All</button>
             <button>Active</button>
             <button>Done</button>
         </div>
-        <ul>
-            <li>Learn React</li>
-            <li>Create React App</li>
-            <li>Deploy App on GitHub Pages</li>
-        </ul>
+    );
+};
+
+const InsertPanel = () => {
+    return (
         <div className="add-group">
             <input placeholder="Add item" />
             <button>+</button>
         </div>
-    </div>
-);
-const root = document.getElementById('root');
-console.log(elem);
+    );
+};
 
-ReactoDOM.render(elem, root);
+const App = () => {
+    return (
+        <div>
+            <AppHeder />
+            <FilterPanel />
+            <TodoList />
+            <InsertPanel />
+        </div>
+    );
+};
+
+const root = document.getElementById('root');
+ReactoDOM.render(<App />, root);
