@@ -1,7 +1,7 @@
 import React from 'react';
 
-const TodoItem = () => {
-    return <span className="todo-item">Task name</span>;
+const TodoItem = ({ text }) => {
+    return <span className="todo-item">{ text }</span>;
 };
 
 export default TodoItem;
