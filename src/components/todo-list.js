@@ -3,10 +3,10 @@ import React from 'react';
 import TodoItem from './todo-item';
 
 const TodoList = ({ todos }) => {
-    const list = todos.map((item) => {
+    const list = todos.map(({ id, ...data }) => {
         return (
-            <li key={item.id}>
-                <TodoItem { ... item } />
+            <li key={id}>
+                <TodoItem { ... data } />
             </li>
         );
     });
