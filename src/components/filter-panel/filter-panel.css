@@ -1,0 +1,33 @@
+.filter-group {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-group__search {
+    height: 32px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.filter-group__button {
+    border: none;
+    background: none;
+
+    height: 32px;
+    padding: 0 8px;
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
+    border-right: 2px solid grey;
+}
+
+.filter-group__button:first-child {
+    border-left: 2px solid grey;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.filter-group__button:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

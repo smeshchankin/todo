@@ -1,0 +1,25 @@
+ul {
+    list-style-type: none;
+    margin: 8px 0;
+}
+
+li {
+    padding: 10px;
+}
+
+li {
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    border-bottom: 2px solid grey;
+}
+
+li:first-child {
+    border-top: 2px solid grey;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+li:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

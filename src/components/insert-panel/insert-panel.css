@@ -1,0 +1,22 @@
+.add-group {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-group__input {
+    height: 32px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.add-group__button {
+    border: none;
+    background: none;
+
+    height: 32px;
+    min-width: 32px;
+    padding: 0 8px;
+    border: 2px solid grey;
+    border-radius: 5px;
+}

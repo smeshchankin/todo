@@ -15,7 +15,7 @@ const App = () => {
         { id: 4, text: 'Task name', important: false }
     ];
     return (
-        <div>
+        <div className="app">
             <AppHeader />
             <FilterPanel />
             <TodoList todos={ list } />
