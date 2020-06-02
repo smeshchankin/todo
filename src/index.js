@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactoDOM from 'react-dom';
 
-import AppHeder from './components/app-header';
-import FilterPanel from './components/filter-panel';
-import TodoList from './components/todo-list';
-import InsertPanel from './components/insert-panel';
+import AppHeder from './components/app-header/app-header';
+import FilterPanel from './components/filter-panel/filter-panel';
+import TodoList from './components/todo-list/todo-list';
+import InsertPanel from './components/insert-panel/insert-panel';
 
 const App = () => {
     const list = [
