@@ -4,7 +4,7 @@ import TodoItem from './todo-item';
 
 const TodoList = ({ todos }) => {
     const list = todos.map((item) => {
-        return <li><TodoItem text={ item.text } important={ item.important } /></li>
+        return <li><TodoItem { ... item } /></li>
     });
 
     return (
