@@ -1,7 +1,7 @@
 import React from 'react';
 
-const AppHeder = () => {
+const AppHeader = () => {
     return <h1>Todo List</h1>;
 };
 
-export default AppHeder;
+export default AppHeader;
