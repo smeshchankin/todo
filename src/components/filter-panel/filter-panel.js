@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './filter-panel.css';
+
 const FilterPanel = () => {
     return (
         <div className='filter-group'>

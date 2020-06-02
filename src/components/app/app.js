@@ -5,6 +5,8 @@ import FilterPanel from '../filter-panel';
 import TodoList from '../todo-list';
 import InsertPanel from '../insert-panel';
 
+import './app.css';
+
 const App = () => {
     const list = [
         { id: 1, text: 'Learn React', important: true },

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './insert-panel.css';
+
 const InsertPanel = () => {
     return (
         <div className="add-group">

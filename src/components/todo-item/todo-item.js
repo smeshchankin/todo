@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './todo-item.css';
+
 const TodoItem = ({ text, important }) => {
     const style = {
         color: important ? 'red' : 'black',
