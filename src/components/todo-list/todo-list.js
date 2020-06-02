@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoItem from '../todo-item/todo-item';
+import TodoItem from '../todo-item';
 
 const TodoList = ({ todos }) => {
     const list = todos.map(({ id, ...data }) => {
