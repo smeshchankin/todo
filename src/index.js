@@ -8,10 +8,10 @@ import InsertPanel from './components/insert-panel';
 
 const App = () => {
     const list = [
-        { text: 'Learn React', important: true },
-        { text: 'Create React App', important: true },
-        { text: 'Deploy App on GitHub Pages', important: false },
-        { text: 'Task name', important: false }
+        { id: 1, text: 'Learn React', important: true },
+        { id: 2, text: 'Create React App', important: true },
+        { id: 3, text: 'Deploy App on GitHub Pages', important: false },
+        { id: 4, text: 'Task name', important: false }
     ];
     return (
         <div>
