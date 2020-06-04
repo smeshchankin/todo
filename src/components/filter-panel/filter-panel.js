@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './filter-panel.css';
 
-const FilterPanel = () => {
-    return (
-        <div className='filter-group'>
-            <input placeholder="Search" className="filter-group__search" />
-            <div className="filter-group__buttons">
-                <button className="filter-group__button">All</button>
-                <button className="filter-group__button">Active</button>
-                <button className="filter-group__button">Done</button>
-            </div>
-        </div>
-    );
-};
+export default class FilterPanel extends Component {
+    buttons = [
+        { id: 'all', text: 'All' },
+        { id: 'active', text: 'Active' },
+        { id: 'done', text: 'Done' }
+    ];
 
-export default FilterPanel;
+    render() {
+        const buttonsElement = this.buttons.map(({ id, text }) => {
+            return <button key={id} className="filter-group__button">{text}</button>;
+        });
+        return (
+            <div className='filter-group'>
+                <input placeholder="Search" className="filter-group__search" />
+                <div className="filter-group__buttons">
+                    { buttonsElement }
+                </div>
+            </div>
+        );
+    }
+};
