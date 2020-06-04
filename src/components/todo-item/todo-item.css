@@ -2,6 +2,9 @@
     font-weight: bold;
     color: blue;
 }
+.done {
+    text-decoration: line-through;
+}
 .item {
     padding: 10px;
     display: flex;
