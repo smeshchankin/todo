@@ -4,10 +4,6 @@ ul {
 }
 
 li {
-    padding: 10px;
-}
-
-li {
     border-left: 2px solid grey;
     border-right: 2px solid grey;
     border-bottom: 2px solid grey;
