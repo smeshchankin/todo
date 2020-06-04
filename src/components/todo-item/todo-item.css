@@ -2,3 +2,19 @@
     font-weight: bold;
     color: blue;
 }
+.item {
+    display: flex;
+    justify-content: space-between;
+}
+.item-buttons button {
+    border: none;
+    background: none;
+
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+
+    font-weight: bold;
+    border: solid 1px grey;
+    border-radius: 5px;
+}
