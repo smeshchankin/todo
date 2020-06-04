@@ -9,15 +9,19 @@ export default class TodoItem extends Component {
     };
 
     onClick = () => {
-        this.setState({
-            done: !this.state.done
+        this.setState((state) => {
+            return {
+                done: !state.done
+            }
         });
     };
 
     onMarkImportant = (e) => {
         e.stopPropagation();
-        this.setState({
-            important: !this.state.important
+        this.setState((state) => {
+            return {
+                important: !state.important
+            }
         });
     };
 
