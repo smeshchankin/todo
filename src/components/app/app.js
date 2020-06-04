@@ -17,12 +17,21 @@ export default class App extends Component {
         ]
     };
 
+    deleteItem = (id) => {
+        this.setState(({list}) => {
+            const idx = list.findIndex((item) => item.id === id);
+            return {
+                list: [...list.slice(0, idx), ...list.slice(idx + 1)]
+            };
+        });
+    };
+
     render() {
         return (
             <div className="app">
                 <AppHeader todo="1" done="3" />
                 <FilterPanel />
-                <TodoList todos={ this.state.list } onDelete={ (id) => console.log('Delete', id) } />
+                <TodoList todos={ this.state.list } onDelete={ this.deleteItem } />
                 <InsertPanel />
             </div>
         );

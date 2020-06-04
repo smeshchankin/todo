@@ -8,7 +8,7 @@ const TodoList = ({ todos, onDelete }) => {
     const list = todos.map(({ id, ...data }) => {
         return (
             <li key={id}>
-                <TodoItem { ... data } onDelete={ () => onDelete(id) } />
+                <TodoItem { ... data } onDelete={ (e) => { e.stopPropagation(); onDelete(id); } } />
             </li>
         );
     });
