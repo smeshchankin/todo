@@ -18,7 +18,7 @@ const App = () => {
         <div className="app">
             <AppHeader todo="1" done="3" />
             <FilterPanel />
-            <TodoList todos={ list } />
+            <TodoList todos={ list } onDelete={ (id) => console.log('Delete', id) } />
             <InsertPanel />
         </div>
     );

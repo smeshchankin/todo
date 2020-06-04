@@ -4,11 +4,11 @@ import TodoItem from '../todo-item';
 
 import './todo-list.css';
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onDelete }) => {
     const list = todos.map(({ id, ...data }) => {
         return (
             <li key={id}>
-                <TodoItem { ... data } />
+                <TodoItem { ... data } onDelete={ () => onDelete(id) } />
             </li>
         );
     });
