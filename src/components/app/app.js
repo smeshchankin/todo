@@ -16,7 +16,7 @@ const App = () => {
     ];
     return (
         <div className="app">
-            <AppHeader />
+            <AppHeader todo="1" done="3" />
             <FilterPanel />
             <TodoList todos={ list } />
             <InsertPanel />
