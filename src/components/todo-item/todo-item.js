@@ -8,21 +8,19 @@ export default class TodoItem extends Component {
         important: false
     };
 
-    onClick = () => {
+    toggleState(fieldName) {
         this.setState((state) => {
             return {
-                done: !state.done
+                [fieldName]: !state[fieldName]
             }
         });
-    };
+    }
+
+    onClick = () => this.toggleState('done');
 
     onMarkImportant = (e) => {
         e.stopPropagation();
-        this.setState((state) => {
-            return {
-                important: !state.important
-            }
-        });
+        this.toggleState('important');
     };
 
     render() {
