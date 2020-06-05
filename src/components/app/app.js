@@ -8,14 +8,18 @@ import InsertPanel from '../insert-panel';
 import './app.css';
 
 export default class App extends Component {
+    idCounter = 10;
     state = {
         list: [
-            { id: 1, text: 'Learn React', important: true },
-            { id: 2, text: 'Create React App', important: true },
-            { id: 3, text: 'Deploy App on GitHub Pages', important: false },
-            { id: 4, text: 'Task name', important: false }
+            this.buildItem('Learn React'),
+            this.buildItem('Create React App'),
+            this.buildItem('Deploy App on GitHub Pages')
         ]
     };
+
+    buildItem(text) {
+        return { id: this.idCounter++, text: text };
+    }
 
     deleteItem = (id) => {
         this.setState(({list}) => {
@@ -26,13 +30,22 @@ export default class App extends Component {
         });
     };
 
+    insertItem = (text) => {
+        this.setState(({list}) => {
+            const item = this.buildItem(text);
+            return {
+                list: [...list, item]
+            };
+        });
+    }
+
     render() {
         return (
             <div className="app">
                 <AppHeader todo="1" done="3" />
                 <FilterPanel />
                 <TodoList todos={ this.state.list } onDelete={ this.deleteItem } />
-                <InsertPanel />
+                <InsertPanel onInsert={ this.insertItem }/>
             </div>
         );
     }
