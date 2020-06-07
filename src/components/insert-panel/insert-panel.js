@@ -7,7 +7,7 @@ export default class InsertPanel extends Component {
         return (
             <form className="add-group">
                 <input placeholder="Add item" className="add-group__input" />
-                <button type="button" className="add-group__button"onClick={() => this.props.onInsert('Dummy task') }>+</button>
+                <button type="button" className="add-group__button" onClick={() => this.props.onInsert('Dummy task') }>+</button>
             </form>
         );
     }

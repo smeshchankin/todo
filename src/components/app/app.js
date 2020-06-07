@@ -8,7 +8,8 @@ import InsertPanel from '../insert-panel';
 import './app.css';
 
 export default class App extends Component {
-    idCounter = 10;
+    idCounter = 1;
+
     state = {
         list: [
             this.buildItem('Learn React'),
@@ -18,7 +19,12 @@ export default class App extends Component {
     };
 
     buildItem(text) {
-        return { id: this.idCounter++, text: text };
+        return {
+            id: this.idCounter++,
+            text: text,
+            important: false,
+            done: false
+        };
     }
 
     deleteItem = (id) => {
@@ -37,15 +43,32 @@ export default class App extends Component {
                 list: [...list, item]
             };
         });
-    }
+    };
+
+    onToggle = (id, fieldName) => {
+        console.log('Toggle', fieldName, id);
+        this.setState(({ list }) => {
+            const idx = list.findIndex((item) => item.id === id);
+            let cloneItem = { ...list[idx] };
+            cloneItem[fieldName] = !cloneItem[fieldName];
+
+            return {
+                list: [...list.slice(0, idx), cloneItem, ...list.slice(idx + 1)]
+            };
+        });
+    };
 
     render() {
         return (
             <div className="app">
                 <AppHeader todo="1" done="3" />
                 <FilterPanel />
-                <TodoList todos={ this.state.list } onDelete={ this.deleteItem } />
-                <InsertPanel onInsert={ this.insertItem }/>
+                <TodoList
+                    todos={ this.state.list }
+                    onDelete={ this.deleteItem }
+                    onToggle={ this.onToggle }
+                />
+                <InsertPanel onInsert={ this.insertItem } />
             </div>
         );
     }

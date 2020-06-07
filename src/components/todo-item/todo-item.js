@@ -3,39 +3,19 @@ import React, { Component } from 'react';
 import './todo-item.css';
 
 export default class TodoItem extends Component {
-    state = {
-        done: false,
-        important: false
-    };
-
-    toggleState(fieldName) {
-        this.setState((state) => {
-            return {
-                [fieldName]: !state[fieldName]
-            }
-        });
-    }
-
-    onClick = () => this.toggleState('done');
-
-    onMarkImportant = (e) => {
-        e.stopPropagation();
-        this.toggleState('important');
-    };
-
     render() {
-        const { text, onDelete } = this.props;
-        const { done, important } = this.state;
+        const { text, important, done, onDelete, onToggle } = this.props;
+
         const classes = "todo-item" +
             (important ? ' important' : '') +
             (done ? ' done': '');
 
         return (
-            <div className="item" onClick={ this.onClick }>
+            <div className="item" onClick={ () => onToggle('done') }>
                 <span className={classes}>{ text }</span>
                 <div className="item-buttons">
                     <button onClick={ onDelete }>X</button>
-                    <button onClick={ this.onMarkImportant }>!</button>
+                    <button onClick={ (e) => { e.stopPropagation(); onToggle('important'); } }>!</button>
                 </div>
             </div>
         );
