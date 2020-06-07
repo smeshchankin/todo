@@ -11,7 +11,7 @@ const TodoList = ({ todos, onDelete, onToggle }) => {
                 <TodoItem
                     { ... data }
                     onDelete={ (e) => { e.stopPropagation(); onDelete(id); } }
-                    onToggle={ (field) => onToggle(field, id) }
+                    onToggle={ (field) => onToggle(id, field) }
                 />
             </li>
         );

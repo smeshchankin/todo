@@ -46,7 +46,6 @@ export default class App extends Component {
     };
 
     onToggle = (id, fieldName) => {
-        console.log('Toggle', fieldName, id);
         this.setState(({ list }) => {
             const idx = list.findIndex((item) => item.id === id);
             let cloneItem = { ...list[idx] };
