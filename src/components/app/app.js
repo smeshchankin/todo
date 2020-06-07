@@ -48,8 +48,8 @@ export default class App extends Component {
     onToggle = (id, fieldName) => {
         this.setState(({ list }) => {
             const idx = list.findIndex((item) => item.id === id);
-            let cloneItem = { ...list[idx] };
-            cloneItem[fieldName] = !cloneItem[fieldName];
+            let item = list[idx];
+            let cloneItem = { ...item, [fieldName]: !item[fieldName] };
 
             return {
                 list: [...list.slice(0, idx), cloneItem, ...list.slice(idx + 1)]
@@ -58,9 +58,12 @@ export default class App extends Component {
     };
 
     render() {
+        let done = this.state.list
+            .filter((item) => item.done).length;
+        let todo = this.state.list.length - done;
         return (
             <div className="app">
-                <AppHeader todo="1" done="3" />
+                <AppHeader todo={todo} done={done} />
                 <FilterPanel />
                 <TodoList
                     todos={ this.state.list }
