@@ -58,15 +58,15 @@ export default class App extends Component {
     };
 
     render() {
-        let done = this.state.list
-            .filter((item) => item.done).length;
-        let todo = this.state.list.length - done;
+        const { list } = this.state;
+        const done = list.filter((item) => item.done).length;
+        const todo = list.length - done;
         return (
             <div className="app">
                 <AppHeader todo={todo} done={done} />
                 <FilterPanel />
                 <TodoList
-                    todos={ this.state.list }
+                    todos={ list }
                     onDelete={ this.deleteItem }
                     onToggle={ this.onToggle }
                 />
