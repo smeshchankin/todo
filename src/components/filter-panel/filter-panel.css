@@ -31,3 +31,8 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+button.active {
+    background-color: grey;
+    color: white;
+}

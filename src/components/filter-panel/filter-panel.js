@@ -4,13 +4,14 @@ import './filter-panel.css';
 
 export default class FilterPanel extends Component {
     state = {
-        text: ''
+        text: '',
+        done: null
     };
 
     buttons = [
-        { id: 'all', text: 'All' },
-        { id: 'active', text: 'Active' },
-        { id: 'done', text: 'Done' }
+        { id: 'all', text: 'All', done: null },
+        { id: 'active', text: 'Active', done: false },
+        { id: 'done', text: 'Done', done: true }
     ];
 
     search = (e) => {
@@ -22,9 +23,27 @@ export default class FilterPanel extends Component {
         });
     };
 
+    filterByDone = (done) => {
+        this.setState((state) => {
+            const newState = {...state, done};
+            this.props.onFilter(newState);
+            return newState;
+        });
+    }
+
     render() {
-        const buttonsElement = this.buttons.map(({ id, text }) => {
-            return <button key={id} className="filter-group__button">{text}</button>;
+        const { done: stateDone } = this.state;
+
+        const buttonsElement = this.buttons.map(({ id, text, done }) => {
+            const className = done === stateDone ? ' active' :  '';
+            return (
+                <button key={id}
+                    className={`filter-group__button${className}`}
+                    onClick={() => this.filterByDone(done)}
+                >
+                    {text}
+                </button>
+            );
         });
         return (
             <div className='filter-group'>

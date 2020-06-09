@@ -17,7 +17,8 @@ export default class App extends Component {
             this.buildItem('Deploy App on GitHub Pages')
         ],
         filter: {
-            text: ''
+            text: '',
+            done: null
         }
     };
 
@@ -66,11 +67,10 @@ export default class App extends Component {
 
     filter(list, filter) {
         const text = filter.text.trim().toUpperCase();
-        if (!text) {
-            return list;
-        }
+        const done = filter.done;
 
-        return list.filter((item) => item.text.toUpperCase().includes(text));
+        return list.filter((item) => (!text || item.text.toUpperCase().includes(text))
+            && (done === null || item.done === done));
     }
 
     render() {
