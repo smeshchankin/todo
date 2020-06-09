@@ -14,21 +14,20 @@ export default class FilterPanel extends Component {
         { id: 'done', text: 'Done', done: true }
     ];
 
-    search = (e) => {
-        const text = e.target.value;
+    filter = (update) => {
         this.setState((state) => {
-            const newState = {...state, text};
+            const newState = {...state, ...update};
             this.props.onFilter(newState);
             return newState;
         });
+    }
+
+    search = (e) => {
+        this.filter({text: e.target.value});
     };
 
     filterByDone = (done) => {
-        this.setState((state) => {
-            const newState = {...state, done};
-            this.props.onFilter(newState);
-            return newState;
-        });
+        this.filter({done});
     }
 
     render() {
