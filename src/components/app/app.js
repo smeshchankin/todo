@@ -15,7 +15,10 @@ export default class App extends Component {
             this.buildItem('Learn React'),
             this.buildItem('Create React App'),
             this.buildItem('Deploy App on GitHub Pages')
-        ]
+        ],
+        filter: {
+            text: ''
+        }
     };
 
     buildItem(text) {
@@ -57,16 +60,29 @@ export default class App extends Component {
         });
     };
 
+    onFilter = (filter) => {
+        this.setState({ filter });
+    };
+
+    filter(list, filter) {
+        const text = filter.text;
+        if (!text) {
+            return list;
+        }
+
+        return list.filter((item) => item.text.includes(text));
+    }
+
     render() {
-        const { list } = this.state;
+        const { list, filter } = this.state;
         const done = list.filter((item) => item.done).length;
         const todo = list.length - done;
         return (
             <div className="app">
                 <AppHeader todo={todo} done={done} />
-                <FilterPanel />
+                <FilterPanel onFilter={this.onFilter} />
                 <TodoList
-                    todos={ list }
+                    todos={ this.filter(list, filter) }
                     onDelete={ this.deleteItem }
                     onToggle={ this.onToggle }
                 />
