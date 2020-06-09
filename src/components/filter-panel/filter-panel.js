@@ -22,14 +22,6 @@ export default class FilterPanel extends Component {
         });
     }
 
-    search = (e) => {
-        this.filter({text: e.target.value});
-    };
-
-    filterByDone = (done) => {
-        this.filter({done});
-    }
-
     render() {
         const { done: stateDone } = this.state;
 
@@ -37,8 +29,8 @@ export default class FilterPanel extends Component {
             const className = done === stateDone ? ' active' :  '';
             return (
                 <button key={id}
-                    className={`filter-group__button${className}`}
-                    onClick={() => this.filterByDone(done)}
+                    className={ `filter-group__button${className}` }
+                    onClick={ () => this.filter({done}) }
                 >
                     {text}
                 </button>
@@ -48,8 +40,8 @@ export default class FilterPanel extends Component {
             <div className='filter-group'>
                 <input className="filter-group__search"
                     placeholder="Search"
-                    onChange={this.search}
-                    value={this.state.text}
+                    onChange={ (e) => this.filter({text: e.target.value}) }
+                    value={ this.state.text }
                 />
                 <div className="filter-group__buttons">
                     { buttonsElement }
