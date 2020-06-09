@@ -65,12 +65,12 @@ export default class App extends Component {
     };
 
     filter(list, filter) {
-        const text = filter.text;
+        const text = filter.text.trim().toUpperCase();
         if (!text) {
             return list;
         }
 
-        return list.filter((item) => item.text.includes(text));
+        return list.filter((item) => item.text.toUpperCase().includes(text));
     }
 
     render() {
