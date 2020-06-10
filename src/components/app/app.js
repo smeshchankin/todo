@@ -11,11 +11,7 @@ export default class App extends Component {
     idCounter = 1;
 
     state = {
-        list: [
-            this.buildItem('Learn React'),
-            this.buildItem('Create React App'),
-            this.buildItem('Deploy App on GitHub Pages')
-        ],
+        list: [],
         filter: {
             text: '',
             done: null
