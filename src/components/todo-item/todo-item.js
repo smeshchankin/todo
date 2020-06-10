@@ -1,23 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './todo-item.css';
 
-export default class TodoItem extends Component {
-    render() {
-        const { text, important, done, onDelete, onToggle } = this.props;
+const TodoItem = ({ text, important, done, onDelete, onToggle }) => {
+    const classes = "todo-item" + (important ? ' important' : '') + (done ? ' done': '');
 
-        const classes = "todo-item" +
-            (important ? ' important' : '') +
-            (done ? ' done': '');
-
-        return (
-            <div className="item" onClick={ () => onToggle('done') }>
-                <span className={classes}>{ text }</span>
-                <div className="item-buttons">
-                    <button onClick={ onDelete }>X</button>
-                    <button onClick={ (e) => { e.stopPropagation(); onToggle('important'); } }>!</button>
-                </div>
+    return (
+        <div className="item" onClick={ () => onToggle('done') }>
+            <span className={ classes }>{ text }</span>
+            <div className="item-buttons">
+                <button onClick={ onDelete }>X</button>
+                <button onClick={ (e) => { e.stopPropagation(); onToggle('important'); } }>!</button>
             </div>
-        );
-    }
+        </div>
+    );
 };
+
+export default TodoItem;
