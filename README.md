@@ -1,5 +1,6 @@
 # Todo Application
 This application is created using ReactJS
+[Open GitHub Pages](http://smeshchankin.github.io/wallet)
 
 How to create the new empty application?
 1. Install NPM dependency:
